@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('gallery', function (Blueprint $table) {
-            $table->id();
-            $table->string('file');
-            $table->string('description');
-            $table->string('title');
-            $table->string('updated_at');
-            $table->string('created_at');
-            $table->timestamps();
+            $table->increments('id')->nullable();
+            $table->string('file')->nullable();
+            $table->string('description')->nullable();
+            $table->string('title')->nullable();
+            $table->integer('like')->nullable();
+            $table->string('updated_at')->nullable();
+            $table->string('created_at')->nullable();
         });
     }
 

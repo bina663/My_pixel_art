@@ -15,8 +15,11 @@ use App\Http\Controllers\UploadController;
 
 Route::get('/',[UploadController::class,'index']);
 Route::get('/upload',[UploadController::class,'upload']);
-Route::post('/upload/send',[UploadController::class,'send']);
 
-Route::fallback(function () {
-    return view('perdido');
-});
+Route::post('/upload/send',[UploadController::class,'send']);
+Route::get('/like/{id}',[UploadController::class,'like']);
+Route::delete('/delete/{id}',[UploadController::class,'destroy']);
+
+// Route::fallback(function () {
+//     return view('perdido');
+// });
