@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class UploadController extends Controller
 {
     public function index(){
-        $gallery = Gallery::all();
+        $gallery = Gallery::orderBy('created_at', 'desc')->get();
         return view('gallery',['gallery' => $gallery]);
     }
     public function upload(){
@@ -23,9 +23,11 @@ class UploadController extends Controller
             $extension = $requestFile->extension();
             $fileName = md5($requestFile->getClientOriginalName() . strtotime('now')) . "." . $extension;
             $request->file->move(public_path('imagens/gallery/'),$fileName);
+            $imageData = file_get_contents("imagens/gallery/$fileName");
+            $imageBase64 = base64_encode($imageData);
+            $gallery->image = $imageBase64;
             $gallery->title = $request->title;
             $gallery->like = 0;
-            $gallery->description = $request->description;
             $gallery->file = $fileName;
         }
 

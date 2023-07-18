@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('like')->nullable();
             $table->string('updated_at')->nullable();
             $table->string('created_at')->nullable();
+            $table->string('image')->nullable();
         });
     }
 
