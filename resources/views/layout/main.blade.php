@@ -1,5 +1,5 @@
 <?php
-    require(resource_path('core\index.php'));
+    require(resource_path('core/index.php'));
 ?>
 
 <!DOCTYPE html>
