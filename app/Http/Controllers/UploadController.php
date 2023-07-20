@@ -25,7 +25,7 @@ class UploadController extends Controller
             $request->file->move(public_path('imagens/gallery/'),$fileName);
             $imageData = file_get_contents("imagens/gallery/$fileName");
             $imageBase64 = base64_encode($imageData);
-            $gallery->image = $imageBase64;
+            //$gallery->image = $imageBase64;
             $gallery->title = $request->title;
             $gallery->like = 0;
             $gallery->file = $fileName;
